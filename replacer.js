@@ -41,6 +41,14 @@ var blacklist= [[/blowjob/ig, 'sexual act'],
                         [/tit/ig,'breast'],
                         [/tits/ig,'breast'],
                         [/whore/ig,'prostitute']];
+//words that need fixing
+//hell
+//cock
+//dick
+//tit
+//tits
+//ass
+//shit
 
 function replaceData(elem) {
     for (var i=0; i<blacklist.length; i++){
