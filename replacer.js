@@ -74,7 +74,7 @@ function replaceValue(elem) {
 
 var elemLength = 0;
 $(document).ready(function() {
-   /* chrome.storage.local.clear(function(result) {
+ /*   chrome.storage.local.clear(function(result) {
         alert('cleared');
     });*/
     chrome.storage.local.get(function (result) {
@@ -111,10 +111,9 @@ $('#test').click(function() {
     var thisname = 1;
     dataObj[thisname] = elemLength + 1;
     chrome.storage.local.set(dataObj, function() {
-        alert('success');
+        blacklist.push([new RegExp('\\b' + replacedWord + '\\b','ig'),replacingWord]);
     });
 //    blacklist[blacklist.length][0] = replacedWord;
 //    blacklist[blacklist.length][1] = replacingWord;
-    blacklist.push([new RegExp('\\b' + replacedWord + '\\b','ig'),replacingWord]);
-    $('body').textWalk();
+    
 });
