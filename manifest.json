@@ -5,15 +5,10 @@
   "description": "This extension will remove profanity from pages",
   "version": "1.0",
 
-  "permissions": [
-    "https://secure.flickr.com/"
-    "tabs", "http://*/*"
-  ],
   "content_scripts": [
     {
       "matches": ["http://*/*"],
-      "js": ["replacer.js"],
-      "run_at": "document_end"
+      "js": ["replacer.js"]
     }
   ]
   "browser_action": {
