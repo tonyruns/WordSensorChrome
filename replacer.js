@@ -42,9 +42,6 @@ $('body').textWalk(filter);
 // (e.g. filtering TextNode elements)
 var observer = new MutationObserver(function(mutations) {
     $('body').textWalk(filter);
-    /*/$('body').textWalk(function() {
-        this.data = this.data.replace(/the/ig,'th');
-    });*/
 });
 
 // Start observing "childList" events in document and its descendants
