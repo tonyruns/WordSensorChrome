@@ -10,6 +10,11 @@
  */
 
 //Global tracker
+
+$(document).ready(function() {
+	document.body.innerHTML = document.body.innerHTML.replace("the", "CHOP CHOP CHP");
+});
+
 var QUERY = [];
 var image_return_count = 0;
  
