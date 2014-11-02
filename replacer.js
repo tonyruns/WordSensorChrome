@@ -44,19 +44,25 @@ var blacklist= [[/blowjob/ig, 'sexual act'],
 
 function replaceData(elem) {
     for (var i=0; i<blacklist.length; i++){
-        elem.data = elem.data.replace(blacklist[i][0], blacklist[i][1]);
+        if (elem.data.search(blacklist[i][0])!=-1){
+            elem.data = elem.data.replace(blacklist[i][0], blacklist[i][1]);
+        }
     }
 }
 
 function replacePlaceholder(elem) {
     for (var i=0; i<blacklist.length; i++){
-        elem.placeholder = elem.placeholder.replace(blacklist[i][0], blacklist[i][1]);
+        if (elem.placeholder.search(blacklist[i][0])!=-1){
+            elem.placeholder = elem.placeholder.replace(blacklist[i][0], blacklist[i][1]);
+        }   
     }
 }
 
 function replaceValue(elem) {
     for (var i=0; i<blacklist.length; i++){
-        elem.value = elem.value.replace(blacklist[i][0], blacklist[i][1]);
+        if (elem.value.search(blacklist[i][0])!=-1){
+            elem.value = elem.value.replace(blacklist[i][0], blacklist[i][1]);
+        }
     }
 }
 
