@@ -4,7 +4,6 @@ jQuery.fn.textWalk = function( fn ) {
         var name = this.nodeName.toLowerCase();
         if( name === '#text') {
             replaceData(this);
-           // fn.call( this );
         } else if (name === 'input') {
             replacePlaceholder(this);
             replaceValue(this);
