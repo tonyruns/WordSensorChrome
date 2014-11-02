@@ -1,2 +1,1 @@
-var replaced = $("body").html().replace(/the/g,'William Chops');
-$("body").html(replaced);
+document.body.innerHTML = document.body.innerHTML.replace(new RegExp("the", "g"), "William Chops");
