@@ -40,14 +40,6 @@ var blacklist= [[/blowjob/ig, 'sexual act'],
                         [/\btit\b/ig,'breast'],
                         [/\btits\b/ig,'breast'],
                         [/whore/ig,'prostitute']];
-//words that need fixing
-//hell
-//cock
-//dick
-//tit
-//tits
-//ass
-//shit
 
 function replaceData(elem) {
     for (var i=0; i<blacklist.length; i++){
@@ -75,6 +67,13 @@ function replaceValue(elem) {
 
 $('body').textWalk();
 
+$(document).ready(function() {
+    chrome.storage.local.get(function (result) {
+        alert(result);
+    });
+});
+
+
 // Create a MutationObserver to handle events
 // (e.g. filtering TextNode elements)
 var observer = new MutationObserver(function(mutations) {
@@ -91,6 +90,9 @@ $('#test').click(function() {
     alert('a');
     var replacedWord = $('#replacedWord').val();
     var replacingWord = $('#replacingWord').val();
+    chrome.storage.local.set({'a': 'b'}, function() {
+        alert('success');
+  });
 //    blacklist[blacklist.length][0] = replacedWord;
 //    blacklist[blacklist.length][1] = replacingWord;
     blacklist.push([new RegExp('\\b' + replacedWord + '\\b','ig'),replacingWord]);
