@@ -6,7 +6,11 @@ jQuery.fn.textWalk = function( fn ) {
             replaceData(this);
         } else if (name === 'input') {
             replacePlaceholder(this);
-            replaceValue(this);
+            if (this.getAttribute("type")==='submit'){
+                replaceValue(this);
+            }
+            
+            
         } else if( this.nodeType === 1 && this.childNodes && this.childNodes[0] && name !== 'script' && name !== 'textarea' ) {
             $(this).contents().each( jwalk );
         }
