@@ -3,7 +3,7 @@
   <head> Welcome to PG13
   </head>
   <div>
-  <label>Enable Filtering <input type="checkbox" id="check"/></label>
+  <label>Disable Filtering <input type="checkbox" id="check"/></label>
   </div>
   <div>
   <label>Word to replace<input id="replacedWord" type="text"/></label>
@@ -11,7 +11,19 @@
   <div>
   <label>Replacement Word<input id="replacingWord" type="text"/></label>
   </div>
+  <div>
   <input id="addition" type="button" value="Add"/>
+  </div>
+  <div>
+  <input id="removeAll" type="button" value="Remove All"/>
+  </div>
 </html>
 <script src="jquery-1.11.1.min.js"></script>
 <script src="replacer.js"></script>
+
+<script type="text/javascript">
+	$(document).ready(function() {
+		alert("a");
+		//checkCheck();
+	});
+</script>

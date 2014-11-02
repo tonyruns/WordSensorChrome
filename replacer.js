@@ -75,7 +75,7 @@ function replaceValue(elem) {
 var elemLength = 0;
 var enable = false;
 $(document).ready(function() {
- /*   chrome.storage.local.clear(function(result) {
+   /*chrome.storage.local.clear(function(result) {
         alert('cleared');
     });*/
     chrome.storage.local.get(function (result) {
@@ -92,18 +92,18 @@ $(document).ready(function() {
         }
     });
 
-    if (!enable) {
+   // if (!enable) {
         $('body').textWalk(true);
-    }
+    //}
 });
 
 
 // Create a MutationObserver to handle events
 // (e.g. filtering TextNode elements)
 var observer = new MutationObserver(function(mutations) {
-    if (!enable) {
+//    if (!enable) {
         $('body').textWalk(false);
-    }
+  //  }
 });
 
 // Start observing "childList" events in document and its descendants
@@ -133,7 +133,18 @@ $('#check').change(function() {
     var dataObj = {};
     var enabled = 2;
     dataObj[enabled] = val;
+    if(val)
+        alert("yes");
+    else
+        alert("no");
     chrome.storage.local.set(dataObj, function() {
+        chrome.tabs.reload(function(){});
+    });
+});
+
+$('#removeAll').click(function() {
+    chrome.storage.local.clear(function(result) {
+        alert('cleared');
         chrome.tabs.reload(function(){});
     });
 });
