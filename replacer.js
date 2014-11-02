@@ -13,5 +13,5 @@ jQuery.fn.textWalk = function( fn ) {
 };
 
 $('body').textWalk(function() {
-    this.data = this.data.replace('the','Choppable Beast Dweep');
+    this.data = this.data.replace('the','William Chops Tiffany');
 });
