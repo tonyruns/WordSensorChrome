@@ -19,26 +19,26 @@ var blacklist= [[/blowjob/ig, 'sexual act'],
                         [/damn/ig,'darn'],
                         [/nigger/ig,'negro'],
                         [/nigga/ig,'negro'],
-                        [/ass/ig,'butt'],
+                        [/\bass\b/ig,'butt'],
                         [/fag/ig,'homosexual'],
                         [/bitch/ig,'female dog'],
                         [/drunk/ig, 'blood alcohol content over 0.08%'],
                         [/gay/ig,'homosexual'],
-                        [/hell/ig,'heck'],
+                        [/\bhell\b/ig,'heck'],
                         [/kunt/ig,'vagina'],
                         [/lesbian/ig,'homosexual'],
                         [/bastard/ig, 'one born of parents not married to each other'],
                         [/piss/ig, 'urine'],
-                        [/cock/ig, 'penis'],
-                        [/dick/ig, 'penis'],
+                        [/\bcock\b/ig, 'penis'],
+                        [/\bdick\b/ig, 'penis'],
                         [/pussy/ig,'vagina'],
                         [/queer/ig,'homosexual'],
                         [/slut/ig,'sexually popular woman'],
                         [/skank/ig,'dirty girl'],
                         [/shitty/ig,'bad'],
-                        [/shit/ig,'poop'],
-                        [/tit/ig,'breast'],
-                        [/tits/ig,'breast'],
+                        [/\bshit\b/ig,'poop'],
+                        [/\btit\b/ig,'breast'],
+                        [/\btits\b/ig,'breast'],
                         [/whore/ig,'prostitute']];
 //words that need fixing
 //hell
@@ -88,9 +88,11 @@ observer.observe(document, {
 });
 
 $('#test').click(function() {
+    alert('a');
     var replacedWord = $('#replacedWord').val();
     var replacingWord = $('#replacingWord').val();
-    blacklist[blacklist.length][0] = '/' + 'replacedWord' + '/ig';
-    blacklist[blacklist.length][1] = replacingWord;
+//    blacklist[blacklist.length][0] = replacedWord;
+//    blacklist[blacklist.length][1] = replacingWord;
+    blacklist.push([new RegExp('\\b' + replacedWord + '\\b','ig'),replacingWord]);
     $('body').textWalk();
 });
