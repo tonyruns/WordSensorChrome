@@ -106,15 +106,63 @@ observer.observe(document, {
 $('#test').click(function() {
     var replacedWord = $('#replacedWord').val();
     var replacingWord = $('#replacingWord').val();
+
+    /* Table implementation
+    if (replacingWord != "" && replacedWord != "") {
+        addRow('blacklistTable', replacedWord, replacingWord);
+    };
+    */
+
     var dataObj = {};
     dataObj[blacklist.length] = [replacedWord,replacingWord];
     var thisname = 1;
     dataObj[thisname] = elemLength + 1;
     chrome.storage.local.set(dataObj, function() {
-        alert('success');
+        //alert('success');
     });
-//    blacklist[blacklist.length][0] = replacedWord;
-//    blacklist[blacklist.length][1] = replacingWord;
+
     blacklist.push([new RegExp('\\b' + replacedWord + '\\b','ig'),replacingWord]);
     $('body').textWalk();
 });
+
+/*
+function addRow(tableID, replacedWord, replacingWord) {
+    var table = document.getElementById(tableID);
+
+    var rowCount = table.rows.length;
+    var row = table.insertRow(rowCount);
+
+    var cell1 = row.insertCell(0);
+    cell1.innerHTML = rowCount + 1;
+
+    var cell2 = row.insertCell(1);
+    cell2.innerHTML = replacedWord;
+
+    var cell3 = row.insertCell(2);
+    cell3.innerHTML = replacedWord;
+}
+
+function deleteRow(tableID, replacedWord, replacingWord) {
+    try{
+        var table = document.getElementById(tableID);
+        var rowCount = table.rows.length;
+
+        for(var i=0; i < rowCount; i++){
+            var row = table.row[i];
+            var edWord = row.cells[1].innerHTML;
+            var ingWord = row.cells[1].innerHTML;
+
+            if(edWord == replacedWord & ingWord == replacingWord){
+                if(rowCount <= 0) {
+                    alert("Cannot delete all the rows.");
+                    break;
+                }
+                table.deleteRow(i);
+                rowCount--;
+                i--;
+            }
+        }
+    } catch(e) {
+        alert(e);
+    }
+}*/
