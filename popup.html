@@ -1,18 +1,24 @@
 <!doctype html>
 <html>
-  <head>
-  </head>
-
-  <p>
-    PG13
-  </p>
-  <label>Please type in the word to replace<input id="replacedWord" type="text"/></label>
-  <label>Please type in the replacing word<input id="replacingWord" type="text"/></label>
-  <input id="test" type="button" value="test"/>
-
-  <!--<table id = "blacklistTable" border = "1">
-  </table>-->
-
+  <head> Welcome to PG13 </head>
+  <div>
+  <label>Disable Filtering <input type="checkbox" id="check"/></label>
+  </div>
+  <div>
+  <label>Word to replace<input id="replacedWord" type="text"/></label>
+  </div>
+  <div>
+  <label>Replacement Word<input id="replacingWord" type="text"/></label>
+  </div>
+  <div>
+  <input id="addition" type="button" value="Add"/>
+  </div>
+  <div>
+  <input id="removeAll" type="button" value="Remove All"/>
+  </div>
+  <!--<div>
+  <table id = "blacklistTable" border = "1"/>
+  </div>-->
 </html>
 <script src="jquery-1.11.1.min.js"></script>
 <script src="replacer.js"></script>
