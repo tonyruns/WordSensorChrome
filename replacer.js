@@ -1,6 +1,5 @@
 jQuery.fn.textWalk = function( fn ) {
     this.contents().each( jwalk );
-    
     function jwalk() {
         var name = this.nodeName.toLowerCase();
         if( name === '#text' ) {
@@ -12,6 +11,21 @@ jQuery.fn.textWalk = function( fn ) {
     return this;
 };
 
+
 $('body').textWalk(function() {
-    this.data = this.data.replace('the','William Chops Tiffany');
+    this.data = this.data.replace(/the/ig,'th');
+});
+
+// Create a MutationObserver to handle events
+// (e.g. filtering TextNode elements)
+var observer = new MutationObserver(function(mutations) {
+    $('body').textWalk(function() {
+        this.data = this.data.replace(/the/ig,'th');
+    });
+});
+
+// Start observing "childList" events in document and its descendants
+observer.observe(document, {
+    childList: true,
+    subtree:   true
 });
