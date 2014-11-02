@@ -71,12 +71,23 @@ function replaceValue(elem) {
     }
 }
 
-$('body').textWalk();
 
+var elemLength = 0;
 $(document).ready(function() {
+   /* chrome.storage.local.clear(function(result) {
+        alert('cleared');
+    });*/
     chrome.storage.local.get(function (result) {
-        alert(result);
+        elemLength = result['1'];
+        if (typeof elemLength === 'undefined')
+            elemLength = 0;
+        var fixedLength = blacklist.length + elemLength;
+        for (var i=blacklist.length; i < fixedLength; i++)
+        {
+            blacklist.push([new RegExp('\\b' + result[i][0] + '\\b','ig'),result[i][1]]);
+        }
     });
+    $('body').textWalk();
 });
 
 
@@ -93,12 +104,15 @@ observer.observe(document, {
 });
 
 $('#test').click(function() {
-    alert('a');
     var replacedWord = $('#replacedWord').val();
     var replacingWord = $('#replacingWord').val();
-    chrome.storage.local.set({'a': 'b'}, function() {
+    var dataObj = {};
+    dataObj[blacklist.length] = [replacedWord,replacingWord];
+    var thisname = 1;
+    dataObj[thisname] = elemLength + 1;
+    chrome.storage.local.set(dataObj, function() {
         alert('success');
-  });
+    });
 //    blacklist[blacklist.length][0] = replacedWord;
 //    blacklist[blacklist.length][1] = replacingWord;
     blacklist.push([new RegExp('\\b' + replacedWord + '\\b','ig'),replacingWord]);
