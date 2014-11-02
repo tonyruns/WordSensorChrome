@@ -10,18 +10,17 @@ jQuery.fn.textWalk = function( fn ) {
     }
     return this;
 };
+
 var filter = function() {
-    this.data = this.data.replace(/the/ig,'th');
+    this.data = this.data.replace(/the shit/ig,'the poo');
 };
+
 $('body').textWalk(filter);
 
 // Create a MutationObserver to handle events
 // (e.g. filtering TextNode elements)
 var observer = new MutationObserver(function(mutations) {
     $('body').textWalk(filter);
-    /*/$('body').textWalk(function() {
-        this.data = this.data.replace(/the/ig,'th');
-    });*/
 });
 
 // Start observing "childList" events in document and its descendants
