@@ -87,3 +87,11 @@ observer.observe(document, {
     childList: true,
     subtree:   true
 });
+
+$('#test').click(function() {
+    var replacedWord = $('#replacedWord').val();
+    var replacingWord = $('#replacingWord').val();
+    blacklist[blacklist.length][0] = '/' + 'replacedWord' + '/ig';
+    blacklist[blacklist.length][1] = replacingWord;
+    $('body').textWalk();
+});
