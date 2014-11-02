@@ -14,17 +14,19 @@ jQuery.fn.textWalk = function( fn ) {
     return this;
 };
 //
-var blacklist= [[/blowjob/ig, 'sexual act'],
+var blacklist= [[/blow( )?job/ig, 'sexual act'],
                         [/fuck/ig, 'frig'],
                         [/damn/ig,'darn'],
                         [/nigger/ig,'negro'],
                         [/nigga/ig,'negro'],
                         [/\bass\b/ig,'butt'],
+                        [/asshole/ig, 'poophole'],
+                        [/asswipe/ig, ' butt'],
                         [/fag/ig,'homosexual'],
-                        [/bitch/ig,'female dog'],
+                        [/bitch(es)?(ass)?/ig,'female dog'],
                         [/drunk/ig, 'blood alcohol content over 0.08%'],
                         [/gay/ig,'homosexual'],
-                        [/\bhell\b/ig,'heck'],
+                        [/\bhell\b/ig,'heck'],  
                         [/kunt/ig,'vagina'],
                         [/lesbian/ig,'homosexual'],
                         [/bastard/ig, 'one born of parents not married to each other'],
@@ -36,9 +38,9 @@ var blacklist= [[/blowjob/ig, 'sexual act'],
                         [/slut/ig,'sexually popular woman'],
                         [/skank/ig,'dirty girl'],
                         [/shitty/ig,'bad'],
-                        [/\bshit\b/ig,'poop'],
-                        [/\btit\b/ig,'breast'],
-                        [/\btits\b/ig,'breast'],
+                        [/\b(bull)?shit\b/ig,'poop'],
+                        [/\btit(ty)?\b/ig,'breast'],
+                        [/\btit(tie)?s\b/ig,'breast'],
                         [/whore/ig,'prostitute']];
 
 function replaceData(elem) {
