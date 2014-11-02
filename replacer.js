@@ -11,7 +11,11 @@ jQuery.fn.textWalk = function( fn ) {
     return this;
 };
 var filter = function() {
-    this.data = this.data.replace(/the/ig,'th');
+    this.data = this.data.replace(/fuck/ig,'frig');
+    this.data = this.data.replace(/shit/ig,'poo');
+    this.data = this.data.replace(/damn/ig,'darn');
+    this.data = this.data.replace(/nigger/ig,'negro');
+    this.data = this.data.replace(/nigga/ig,'negro');
 };
 $('body').textWalk(filter);
 
